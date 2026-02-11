@@ -1,0 +1,3 @@
+P0113 Intake Air Temperature Sensor High
+P0131 Front O2 Sensor Low Voltage
+Maintenance Interval: Change engine oil every 5000 miles.

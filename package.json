@@ -1,0 +1,39 @@
+{
+  "name": "the-badass-smartass",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
+    "web": "expo start --web",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@react-navigation/bottom-tabs": "^6.6.1",
+    "@react-navigation/native": "^6.1.18",
+    "@react-navigation/native-stack": "^6.11.0",
+    "expo": "~52.0.28",
+    "expo-document-picker": "~13.0.3",
+    "expo-file-system": "~18.0.7",
+    "expo-speech": "~13.0.1",
+    "expo-speech-recognition": "~0.2.0",
+    "expo-sqlite": "~15.0.6",
+    "mammoth": "^1.9.1",
+    "pdfjs-dist": "^4.10.38",
+    "react": "18.3.1",
+    "react-native": "0.76.6",
+    "react-native-safe-area-context": "4.12.0",
+    "react-native-screens": "~4.4.0",
+    "expo-clipboard": "~7.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "@types/react": "~18.3.12",
+    "babel-preset-expo": "^12.0.10",
+    "jest": "^29.7.0",
+    "jest-expo": "~52.0.3",
+    "typescript": "^5.7.2"
+  }
+}
