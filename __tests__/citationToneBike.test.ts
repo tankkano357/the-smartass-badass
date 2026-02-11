@@ -11,7 +11,7 @@ describe('citation formatting', () => {
           page_start: 4,
           page_end: 4,
           section_title: 'Specs',
-          chunk_text: 'Torque 35 ft-lb',
+          chunk_text: 'Torque 35 ft-lb. Use calibrated wrench.',
           embedding_vector: []
         },
         vectorScore: 0.9,
@@ -24,6 +24,7 @@ describe('citation formatting', () => {
     if (typeof answer === 'string') return;
     expect(answer.citations[0].document).toBe('Manual.pdf');
     expect(answer.citations[0].pages).toBe('4');
+    expect(answer.bottomLine).toContain('Torque 35 ft-lb.');
   });
 
   it('tone overlay does not mutate numeric specs', () => {

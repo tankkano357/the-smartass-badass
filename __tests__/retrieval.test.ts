@@ -1,10 +1,18 @@
 jest.mock('../src/db/database', () => ({
   __esModule: true,
   default: {
-    getAllSync: jest.fn(() => [
-      { id: 1, doc_name: 'A', page_start: 1, page_end: 1, section_title: 's', chunk_text: 'Torque to 35 ft-lb', embedding_vector: JSON.stringify([1, 0, 0]) },
-      { id: 2, doc_name: 'B', page_start: 2, page_end: 2, section_title: 's', chunk_text: 'Paint color black', embedding_vector: JSON.stringify([0, 1, 0]) }
-    ]),
+    getAllSync: jest.fn((sql: string) => {
+      if (sql.includes('FROM chunks')) {
+        return [
+          { id: 1, doc_name: 'A', page_start: 1, page_end: 1, section_title: 's', chunk_text: 'Torque to 35 ft-lb', embedding_vector: JSON.stringify([1, 0, 0]) },
+          { id: 2, doc_name: 'B', page_start: 2, page_end: 2, section_title: 's', chunk_text: 'Paint color black', embedding_vector: JSON.stringify([0, 1, 0]) }
+        ];
+      }
+      if (sql.includes('FROM inverted_index')) {
+        return [{ chunk_id: 1, overlap: 4 }];
+      }
+      return [];
+    }),
     runSync: jest.fn(),
     getFirstSync: jest.fn(() => ({ id: 1 }))
   }
@@ -24,6 +32,6 @@ describe('hybridSearch merge', () => {
   it('returns refusal when low confidence', () => {
     jest.spyOn(embeddings, 'embedText').mockImplementation(() => [0, 0, 1]);
     const { refused } = hybridSearch('unrelated thing');
-    expect(typeof refused).toBe('boolean');
+    expect(refused).toBe(true);
   });
 });

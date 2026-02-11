@@ -47,3 +47,12 @@ export type BikeProfile = {
   buildSheet: Record<string, string[]>;
   milestone: string;
 };
+
+export type QAResult =
+  | { status: 'NOT_FOUND'; message: 'Not in the provided manuals.' }
+  | { status: 'LOW_CONFIDENCE'; message: "They can't all be golden." }
+  | {
+      status: 'ANSWERED';
+      structured: AnswerSections;
+      rendered: string;
+    };

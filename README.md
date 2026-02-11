@@ -19,15 +19,16 @@ Scan the QR code in Expo Go.
 - Managed workflow only
 - No custom native modules
 - On-device SQLite for storage
-- On-device file imports with Expo Document Picker
+- On-device file imports with Expo Document Picker + File System
 - On-device speech playback via `expo-speech`
-- Speech-to-text via Expo-compatible speech recognition API
+- Speech-to-text via Expo-compatible speech recognition API wrapper
 
-## Offline-First Behavior
+## Behavior Rules
 - Imports and stores manual files locally.
 - Chunks, embeddings, keyword index, retrieval, and answer formatting run locally.
-- If no answer found in imported manuals the app returns: `Not in the provided manuals.`
-- If retrieval confidence is too low the app returns: `They can't all be golden.`
+- If no answer is found in imported manuals, app returns exactly: `Not in the provided manuals.`
+- If retrieval confidence is too low, app returns exactly: `They can't all be golden.`
+- Ask screen includes structured sections: Bottom Line, Steps, Tools/Parts, Specifications, and Citations.
 
 ## Test
 ```bash
