@@ -1,0 +1,10 @@
+Section: Cam Chest Service
+1. Remove cam cover.
+2. Inspect cam chain tensioners.
+3. Install new chains and sprockets.
+Torque cam cover bolts to 90-120 in-lb.
+
+Table: Fluid Capacities
+Item|Specification
+Engine Oil|3.5 qt with filter
+Brake Fluid|DOT 5
